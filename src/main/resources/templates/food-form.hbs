@@ -1,0 +1,27 @@
+{{#partial "content"}}
+
+   <!--{{#if editPost}}-->
+       <!--<h1>Edit this Post!</h1>-->
+       <!--<form action="/posts/{{editPost.id}}/update" method="post">-->
+           <!--<label for="content">Edit this post's content</label>-->
+           <!--<input id="content" name="content" type="text" value="{{editPost.content}}">-->
+   <!--{{else}}-->
+
+    <h3>What did you Eat?</h3>
+
+    <form action="/foods/new" method="post">
+       <select class="custom-select" name="foodSelector">
+           <option selected>select food item</option>
+           <option value="almondbutter">almond butter</option>
+           <option value="blueberries">blueberries</option>
+           <option value="3">Three</option>
+       </select>
+
+        <label for="servings">How many servings</label>
+        <input id="servings" name="servings" type="text">
+        {{/if}}
+        <button type="submit" class="btn btn-default">Submit nom nom</button>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}
