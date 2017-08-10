@@ -1,6 +1,9 @@
 package models;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Guest on 8/10/17.
@@ -46,6 +49,13 @@ public class Food {
     public void update(Double servings){
         this.servings = servings;
     }
+
+    public void createFoods (String name){
+        //define Food Bank then food "name" will retrieve it's info
+        Map<String, Object> foodBank = new HashMap<>();
+        foodBank.put("almondbutter",new FoodFacts(1.00, 98.00 , "protein,oils"));
+    }
+
 
 }
 
