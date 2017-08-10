@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,10 +40,47 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //get: show all foods
-//        get ( "/foods", (request,response)-> {
+        get ( "/foods", (request,response)-> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            ArrayList<Food> foods = Food.getAllFoods();
+            model.put("foods",foods);
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //get individual food details
+        get( "/foods/:id", (request,response)-> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            int id = Integer.parseInt(request.params("id"));
+            Food detailFood = Food.getFoodbyId(id);
+            model.put("food",detailFood);
+            System.out.println("ID "+ id + "name "+detailFood.getName());
+            return new ModelAndView(model, "foods-details.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //get: individual food update
+        get("/foods/:id/update", (request, response) -> {
+            System.out.println(request);
+            System.out.println(response);
+
+            Map<String,Object>model = new HashMap<String,Object>();
+            int id = Integer.parseInt(request.params("id"));
+            Food detailFood = Food.getFoodbyId(id);
+            model.put("detailFood",detailFood);
+            return new ModelAndView(model, "food-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+//        //post: update individual food
+//        post("/foods/:id/update", (request, response) -> {
+//            Map<String,Object>model = new HashMap<String,Object>();
+//            Double newServings = Double.parseDouble(request.queryParams("servings"));
+//            int id = Integer.parseInt(request.params("id"));
+//            Food detailFood = Food.getFoodbyId(id);
+//            detailFood.update(newServings);
 //
-//
+//            return new ModelAndView(model, "success.hbs");
 //        }, new HandlebarsTemplateEngine());
+
+
 
 
 

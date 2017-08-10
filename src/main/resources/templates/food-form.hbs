@@ -1,11 +1,11 @@
 {{#partial "content"}}
 
-   <!--{{#if editPost}}-->
-       <!--<h1>Edit this Post!</h1>-->
-       <!--<form action="/posts/{{editPost.id}}/update" method="post">-->
-           <!--<label for="content">Edit this post's content</label>-->
-           <!--<input id="content" name="content" type="text" value="{{editPost.content}}">-->
-   <!--{{else}}-->
+   {{#if detailFood}}
+       <h1>Edit this Food</h1>
+       <form action="/foods/{{detailFood.id}}/update" method="post">
+           <label for="servings">Edit this food's servings</label>
+           <input id="servings" name="servings" type="text" value="{{detailFood.servings}}">
+   {{else}}
 
     <h3>What did you Eat?</h3>
 
@@ -22,6 +22,7 @@
         {{/if}}
         <button type="submit" class="btn btn-default">Submit nom nom</button>
     </form>
-{{/partial}}
+
+ {{/partial}}
 
 {{> layout.hbs}}

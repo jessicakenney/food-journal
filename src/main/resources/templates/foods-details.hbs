@@ -1,0 +1,20 @@
+{{#partial "content"}}
+    <p>Food:</p>
+    <p>{{ food.name }}</p>
+    <p>{{ food.servings }}</p>
+    <p>{{ food.calories }}</p>
+    <!--<h5>Created At:</h5>-->
+    <!--<p> {{ post.createdAt }}</p>-->
+    <!--<h5>Post status:</h5>-->
+    <!--<p>-->
+        <!--{{#if post.published }}-->
+            <!--<span class="glyphicon glyphicon-star" aria-hidden="true"></span>  Published-->
+        <!--{{else}}-->
+            <!--<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Draft-->
+        <!--{{/if}}-->
+        <a href="/foods/{{food.foodId}}/update">Edit</a> &nbsp
+        <a href="/foods/{{food.foodId}}/delete">DELETE (no undo)</a>
+
+{{/partial}}
+
+{{> layout.hbs}}

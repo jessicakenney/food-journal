@@ -36,11 +36,18 @@ public class FoodTest {
         Food.clearAllFoods();
         Food testFood = getNewFood();
         Food anotherTestFood = new Food ("blueberries", 10.00);
-        assertEquals(2, Food.getAll().size());
+        assertEquals(2, Food.getAllFoods().size());
         assertEquals("almond butter", testFood.getName());
         Double expected = 10.00;
         assertEquals(expected, anotherTestFood.getServings());
     }
 
-
+    @Test
+    public void getFoodId_returnsAFoodbyID_int() throws Exception {
+        Food.clearAllFoods();
+        Food testFood = getNewFood();
+        Food anotherTestFood = new Food ("blueberries", 10.00);
+        assertEquals(1, testFood.getFoodId());
+        assertEquals(2, anotherTestFood.getFoodId());
+    }
 }

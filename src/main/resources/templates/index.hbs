@@ -1,0 +1,22 @@
+{{#partial "content"}}
+
+    <h1>Foods Enjoyed</h1>
+
+    {{#if foods}}
+        {{#each foods}}
+        <div class = "well">
+            <p>{{name}} <a href="/foods/{{foodId}}">read more...</a></p>
+        </div><!--show-->
+        {{/each}}
+    {{else}} <!--noposts-->
+    <p>No food yet. Aren't you hungry?</p>
+    {{/if}}
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted"><a href="/foods/delete">DELETE All Foods</a></p>
+        </div>
+    </footer>
+{{/partial}}
+
+{{> layout.hbs}}
